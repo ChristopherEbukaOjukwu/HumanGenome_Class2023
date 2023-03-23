@@ -443,7 +443,7 @@ num_peaks_df
 knitr::include_graphics("/scratch/Shares/rinnclass/CLASS_2023/Christopher/CLASS_2023/CLASSES/my_results/ucsc_cebpz_shot.jpg")
 ```
 
-<img src="my_results/ucsc_cebpz_shot.jpg" width="1888" />
+<img src="christopher_new_files/figure-gfm/ucsc_cebpz_shot.jpg" width="1888" />
 
 ``` r
 #The peaks from my protein, CEBPZ, are similar to the analysis from previous years.
