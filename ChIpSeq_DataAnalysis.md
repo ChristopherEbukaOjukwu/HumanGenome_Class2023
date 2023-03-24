@@ -51,7 +51,8 @@ peak_num
     ## 21 EP300        R5     10270
     ## 22 EP300        R6       882
 
-##Now I am going to create consensus peaks for each protein
+
+## Now I am going to create consensus peaks for each protein
 
 ``` r
 #this gets the name of dbps (I have 5 of them).
