@@ -51,7 +51,7 @@ peak_num
     ## 21 EP300        R5     10270
     ## 22 EP300        R6       882
 
-\#Now I am going to create consensus peaks for each protein
+##Now I am going to create consensus peaks for each protein
 
 ``` r
 #this gets the name of dbps (I have 5 of them).
@@ -115,7 +115,7 @@ for(i in 1:length(consensus_list)) {
 rtracklayer::export(consensus_list[[i]], paste0(exportpath, names(consensus_list)[i], "_consensus_peaks.bed") )}
 ```
 
-\# Now I am going to make my consensus peaks compatible with UCSC genome browser
+## Now I am going to make my consensus peaks compatible with UCSC genome browser
 
 ``` r
 #makes a file list
@@ -161,9 +161,8 @@ for(i in 1:length(peaks)) {
 }  
 ```
 
-\# I am curious if my proteins are transcription factors so I will use the annotations
-
-\# in a cell paper I found and see
+## I am curious if my proteins are transcription factors so I will use the annotations
+## in a cell paper I found and see
 
 ``` r
 # import consensus bed files
@@ -249,7 +248,7 @@ num_peaks_df
 
 CEBPZ, CTCF, and ELF1 are all transcriptions factors.
 
-\# Now I want to compare a protein with a previous analysis
+## Now I want to compare a protein with a previous analysis
 
 ``` r
 # goto UCSC genome browser and load in a peak file for a given protein
@@ -265,9 +264,9 @@ knitr::include_graphics("/scratch/Shares/rinnclass/CLASS_2023/Christopher/CLASS_
 #The peaks from my protein, CEBPZ, are similar to the analysis from previous years.
 ```
 
-\# Now I am going to determine how my peaks for each protein overlap annotations of the genome
+## Now I am going to determine how my peaks for each protein overlap annotations of the genome
 
-\# First I will find the overlaps between my consensus peaks with promoters of lncRNA and mRNA promoters
+## First I will find the overlaps between my consensus peaks with promoters of lncRNA and mRNA promoters
 
 ``` r
 #we could get just the genes
@@ -342,15 +341,14 @@ num_peaks_df
     ## 4                      102344              78
     ## 5                         748              12
 
-\# results:
-
+## results:
 1) What can you determine from these overlaps? The number of the peaks
 that overlap promoters for CEBPZ is greater than the number of peaks
 itself. And the number of peaks that overlap promoters for CHD2 is
 almost the same for the number that of peaks. I can say the DBPs likes
 to bind near promoters.
 
-\# Now I want to compare the overlaps with lncRNA and mRNA promoters seperately
+## Now I want to compare the overlaps with lncRNA and mRNA promoters seperately
 
 ``` r
 # last handy annotation will be lncRNA and mRNA gene IDs to subset
@@ -386,17 +384,13 @@ num_peaks_df
     ## 4                              21703                            80641
     ## 5                                429                              319
 
-\# results:
-
-1) What is the difference in overlaps between mRNA and lncRNA promoters
-
+## results: 1) What is the difference in overlaps between mRNA and lncRNA promoters
 Generally, the values of the peaks overlapping lncRNA promoters are much
 smaller than that of mRNA promoters. Except for EP300 which has a higher
 value of peaks overlapping lncRNA promoter to mRNA promoters.
 
-\# Now I am going to test if there is more binding over gene bodies than promoters
-
-\# I will seperate lncRNA and mRNA gene bodies to find the overlaps
+## Now I am going to test if there is more binding over gene bodies than promoters
+## I will seperate lncRNA and mRNA gene bodies to find the overlaps
 
 ``` r
 # Note this takes 10-15 min
@@ -455,20 +449,15 @@ num_peaks_df
     ## 4                          122034
     ## 5                            3267
 
-\# results:
-
-1) Do my proteins have more overlaps with promoters or genebodies?
-
+## results: 1) Do my proteins have more overlaps with promoters or genebodies?
 Generally, there are more peaks overlapping genebodies than promoters.
 When lncRNA and mRNA are separated, the values of the peaks overlapping
 the promoters are smaller than the values of the peaks overlapping the
 genebody except for CEBPZ.
 
-\# It is nice and all to find overlaps, but I am interested in how many proteins
-
-\# bind a specific promoter. I will use my handy “occurence” parameter in
-
-\# " count peaks per feature"
+## It is nice and all to find overlaps, but I am interested in how many proteins
+## bind a specific promoter. I will use my handy “occurence” parameter in
+## " count peaks per feature"
 
 ``` r
 #using the type=occurrence instead of type=count
@@ -504,12 +493,11 @@ table(peak_occurence_df$number_of_dbp)
     ##     0     1     2     3     4 
     ## 24271  5895  5363  1270    15
 
-\# results: I find the max number of proteins on a promoter to be 4
+## results: I find the max number of proteins on a promoter to be 4
 
 
-\# Now I want to start plotting my results
-
-\# First I will see if there is a realtionship between peak number and total DNA covered
+## Now I want to start plotting my results
+## First I will see if there is a realtionship between peak number and total DNA covered
 
 ``` r
 # let's make this simple plot first: number of peaks -vs- total peak length
@@ -542,7 +530,7 @@ ggplot(num_peaks_df, aes(x = num_peaks,
 # We have a result! The more peaks the more genome space is covered.
 ```
 
-\# Now I want to color my plot by whether the protein is a TF or not.
+## Now I want to color my plot by whether the protein is a TF or not.
 
 ``` r
 # Let's plot the num_peaks -vs- coverage for Zinc finger proteins (C2H2 ZF)
@@ -583,7 +571,7 @@ ggplot(num_peaks_df, aes(x = num_peaks,
 
 ![](christopher_new_files/figure-gfm/none%20of%20my%20proteins%20are%20TF-3.png)<!-- -->
 
-\# I want to make a histogram of the number of peaks for each of my proteins
+## I want to make a histogram of the number of peaks for each of my proteins
 
 ``` r
 # frequencty of peak numbers across DBPs
@@ -606,7 +594,7 @@ ggplot(num_peaks_df, aes(x = num_peaks, fill = tf)) +
 
 ![](christopher_new_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
 
-\# Now I want to facet this by the type of DNA binding domain my protein has.
+## Now I want to facet this by the type of DNA binding domain my protein has.
 
 ``` r
 # Now let's set dbds to these three DBDs.
