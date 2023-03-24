@@ -4,7 +4,7 @@ Christopher Ebuka Ojukwu
 3/17/2023
 
 
-\# First I will read in each replicate file
+## First I will read in each replicate file
 
 ``` r
 #link to my path
